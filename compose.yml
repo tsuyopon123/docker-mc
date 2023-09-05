@@ -19,3 +19,16 @@ services:
       - ./whitelist.json:/whitelist.json
       - mc_main:/data
 
+  mc_main_backups:
+    image: itzg/mc-backup
+    depends_on:
+      mc_main:
+        condition: service_healthy
+    environment:
+      BACKUP_INTERVAL: "6h"
+      RCON_HOST: mc_main
+      INITIAL_DELAY: 0
+    volumes:
+      - mc_main:/data:ro
+      - ./backups/mc_main:/backups
+
