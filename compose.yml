@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  mc_main:
+    image: itzg/minecraft-server:java17-jdk
+    ports:
+      - 25565:25565
+      - 8100:8100 # BlueMap
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    environment:
+      - EULA=true
+      - VERSION=${VERSION}
+      - TYPE=${TYPE}
+      - MEMORY=${MEMORY}
+      - WHITELIST_FILE=${WHITELIST_FILE}
+    volumes:
+      - ./whitelist.json:/whitelist.json
+      - mc_main:/data
+
