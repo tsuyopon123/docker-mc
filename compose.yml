@@ -15,6 +15,7 @@ services:
       - TYPE=${TYPE}
       - MEMORY=${MEMORY}
       - WHITELIST_FILE=${WHITELIST_FILE}
+      - SPIGET_RESOURCES=${SPIGET_RESOURCES}
     volumes:
       - ./whitelist.json:/whitelist.json
       - mc_main:/data
