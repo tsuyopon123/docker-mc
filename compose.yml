@@ -32,3 +32,5 @@ services:
       - mc_main:/data:ro
       - ./backups/mc_main:/backups
 
+volumes:
+  mc_main: {}
